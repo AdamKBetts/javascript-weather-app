@@ -47,4 +47,31 @@ body {
     border: 1px solid #ddd;
     border-radius: 4px;
     background-color: #f9f9f9;
+    text-align: left;
+}
+
+#weather-info h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.weather-details {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.weather-details img {
+    margin-right: 10px;
+}
+
+.weather-details .temperature {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.weather-details .description {
+    font-style: italic;
 }

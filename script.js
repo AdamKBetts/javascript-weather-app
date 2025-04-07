@@ -16,7 +16,8 @@ searchButton.addEventListener('click', () => {
             .then(data => {
                 console.log('Weather data:', data); // Keep this for now for debugging
 
-                const temperature = Math.round(data.main.temp); // Round to the nearest whole number
+                // Extract relevant information
+                const temperature = Math.round(data.main.temp);
                 const description = data.weather[0].description;
                 const cityName = data.name;
                 const country = data.sys.country;
@@ -25,17 +26,19 @@ searchButton.addEventListener('click', () => {
                 const weatherIconCode = data.weather[0].icon;
                 const weatherIconUrl = `https://openweathermap.org/img/wn/${weatherIconCode}@2x.png`;
 
+                // Create HTML to display the information
                 const weatherHTML = `
                     <h2>${cityName}, ${country}</h2>
                     <div class="weather-details">
                         <img src="${weatherIconUrl}" alt="${description}" width="50" height="50">
-                        <p class="temperature">${temperature}°C</p>
-                        <p class="description">${description.charAt(0).toUpperCase() + description.slice(1)}</p>
+                        <p class="temperature">${temperature}</p>
+                        <p class="description"> ${description.charAt(0).toUpperCase() + description.slice(1)}</p>
                     </div>
                     <p>Humidity: ${humidity}%</p>
                     <p>Wind Speed: ${windSpeed} m/s</p>
                 `;
 
+                // Update the weatherInfoDiv with the HTML
                 weatherInfoDiv.innerHTML = weatherHTML;
             })
             .catch(error => {
