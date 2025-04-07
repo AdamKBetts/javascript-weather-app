@@ -16,6 +16,11 @@ searchButton.addEventListener('click', () => {
             .then(data => {
                 console.log('Weather data:', data); // Keep this for now for debugging
 
+                if (data.cod === '404') {
+                    weatherInfoDiv.textContent = 'City not found. Please enter a valid city.';
+                    return;
+                }
+
                 // Extract relevant information
                 const temperature = Math.round(data.main.temp);
                 const description = data.weather[0].description;
