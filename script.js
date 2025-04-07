@@ -23,6 +23,7 @@ searchButton.addEventListener('click', () => {
 
                 // Extract relevant information
                 const temperature = Math.round(data.main.temp);
+                const feelsLike = Math.round(data.main.feels_like);
                 const description = data.weather[0].description;
                 const cityName = data.name;
                 const country = data.sys.country;
@@ -36,7 +37,10 @@ searchButton.addEventListener('click', () => {
                     <h2>${cityName}, ${country}</h2>
                     <div class="weather-details">
                         <img src="${weatherIconUrl}" alt="${description}" width="50" height="50">
-                        <p class="temperature">${temperature}</p>
+                        <div class="temperatures">
+                            <p class="temperature">${temperature}°C</p>
+                            <p class="feels-like">Feels like: ${feelsLike}°C</p>
+                        </div>
                         <p class="description"> ${description.charAt(0).toUpperCase() + description.slice(1)}</p>
                     </div>
                     <p>Humidity: ${humidity}%</p>
